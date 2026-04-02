@@ -43,7 +43,7 @@ export default function App() {
 
   return (
     <YamlSidebar isOpen={isYamlOpen} onClose={() => setYamlOpen(false)}>
-      <Page header={header} sidebar={<PageSidebar isSidebarOpen={false} />}> 
+      <Page key={header.key} sidebar={<PageSidebar isSidebarOpen={false} />}> 
         <PageSection isFilled>
           <Routes>
             <Route path="/" element={<Builder />} />

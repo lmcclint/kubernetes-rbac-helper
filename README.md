@@ -7,7 +7,7 @@ Status: pre-alpha (vertical slice)
 ## Quick start (containerized dev)
 Run the dev server in a disposable Node container, no global installs required:
 
-```
+```bash
 podman run --rm -it \
   -v $(pwd):/workspace \
   -w /workspace \
@@ -17,8 +17,8 @@ podman run --rm -it \
 
 In another terminal, run a local Kubernetes API proxy (avoids CORS/TLS issues):
 
-```
-kubectl proxy --port=8001
+```bash
+kubectl proxy --port=8001 --address=0.0.0.0 --accept-hosts='^*'
 ```
 
 Open http://localhost:5173 and set Config → API endpoint to `http://localhost:8001`.

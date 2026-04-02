@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { ApiConfig } from '../types'
+//import type { ApiConfig } from '../types'
 
 export const useAppConfig = create<{
   baseUrl: string

@@ -1,13 +1,21 @@
 import React from 'react'
 import { PageSection, Stack, StackItem, Title, TextInput, HelperText, HelperTextItem, Button } from '@patternfly/react-core'
+import { useNavigate } from 'react-router-dom'
 import { useAppConfig } from '../../state/config'
 
 export function ConfigPanel() {
+  const navigate = useNavigate();
   const { baseUrl, setBaseUrl } = useAppConfig()
   const [url, setUrl] = React.useState(baseUrl || '')
 
+  // Function to setBaseURL and navigate back to the main route
+  const handleSave = () => {
+    setBaseUrl(url)
+    navigate('/')
+  }
+
   return (
-    <PageSection variant="light">
+    <PageSection variant="default">
       <Stack hasGutter>
         <StackItem>
           <Title headingLevel="h1">Configuration</Title>
@@ -27,7 +35,7 @@ export function ConfigPanel() {
           </HelperText>
         </StackItem>
         <StackItem>
-          <Button variant="primary" onClick={() => setBaseUrl(url)} isDisabled={!url}>Save</Button>
+          <Button variant="primary" onClick={handleSave} isDisabled={!url}>Save</Button>
         </StackItem>
       </Stack>
     </PageSection>

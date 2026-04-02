@@ -322,9 +322,9 @@ export function Builder() {
       <Title headingLevel="h1">RBAC Builder</Title>
       <div style={{ marginTop: 8, color: '#6a6e73' }}>
         API endpoint: {baseUrl ? <code>{baseUrl}</code> : <em>not configured</em>}
+        {' '}<Button variant="link" onClick={() => (window.location.href = '/config')}>Open Config</Button>
         {!baseUrl && (
           <>
-            {' '}<Button variant="link" onClick={() => (window.location.href = '/config')}>Open Config</Button>
             {' '}or{' '}
             <Button variant="secondary" onClick={() => (useAppConfig.getState().setBaseUrl('http://localhost:8001'))}>Use http://localhost:8001</Button>
           </>
